@@ -79,15 +79,16 @@ class _HomePageState extends State<HomePage> {
                       child: Chip(
                         side: const BorderSide(color: Colors.white),
                         backgroundColor: selectedFilter == filter
-                            ? Colors.blue
-                            : const Color.fromARGB(255, 231, 231, 231),
+                            ? Theme.of(context).colorScheme.primary
+                            : const Color.fromARGB(255, 182, 182, 182),
                         padding: const EdgeInsets.symmetric(
                           horizontal: 20,
                           vertical: 15,
                         ),
                         label: Text(
                           filter,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                         labelStyle: const TextStyle(fontSize: 16),
                         shape: RoundedRectangleBorder(
@@ -98,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),
