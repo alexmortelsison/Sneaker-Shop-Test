@@ -55,7 +55,7 @@ final cart = [
     'id': '1',
     'title': 'Jordan 1 HIGH OG "Satin Bred"',
     'price': 172,
-    'sizes': [8, 9, 10, 11, 12],
+    'sizes': 8,
     'imageURL': 'images/1.png',
     'company': 'Nike',
   }
