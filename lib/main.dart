@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_sneaker_shop/cart_provider.dart';
 import 'package:test_sneaker_shop/home_page.dart';
 
 void main() {
@@ -10,38 +12,41 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        textTheme: const TextTheme(
-          titleMedium: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
+    return ChangeNotifierProvider(
+      create: (BuildContext context) => CartProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          useMaterial3: true,
+          textTheme: const TextTheme(
+            titleMedium: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+            bodySmall: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+            ),
+            titleLarge: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),
           ),
-          bodySmall: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
+          appBarTheme: const AppBarTheme(
+            titleTextStyle: TextStyle(fontSize: 16, color: Colors.black),
           ),
-          titleLarge: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
+          fontFamily: 'Lato',
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          inputDecorationTheme: const InputDecorationTheme(
+            hintStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+            prefixIconColor: Colors.grey,
           ),
         ),
-        appBarTheme: const AppBarTheme(
-          titleTextStyle: TextStyle(fontSize: 16, color: Colors.black),
-        ),
-        fontFamily: 'Lato',
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        inputDecorationTheme: const InputDecorationTheme(
-          hintStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
-          prefixIconColor: Colors.grey,
-        ),
+        home: const HomePage(),
       ),
-      home: const HomePage(),
     );
   }
 }

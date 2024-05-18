@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'global_variables.dart';
+import 'package:provider/provider.dart';
+import 'package:test_sneaker_shop/cart_provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<CartProvider>(context).cart;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cart'),
@@ -15,10 +17,12 @@ class CartPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final cartItem = cart[index];
           return ListTile(
-            leading: CircleAvatar(
-              backgroundColor: const Color.fromARGB(255, 211, 211, 211),
-              radius: 30,
-              backgroundImage: AssetImage('${cartItem['imageURL']}'),
+            leading: GestureDetector(
+              child: CircleAvatar(
+                backgroundColor: const Color.fromARGB(255, 211, 211, 211),
+                radius: 30,
+                backgroundImage: AssetImage('${cartItem['imageURL']}'),
+              ),
             ),
             trailing: IconButton(
               onPressed: () {},
