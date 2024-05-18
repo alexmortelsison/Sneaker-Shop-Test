@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_sneaker_shop/global_variables.dart';
 import 'package:test_sneaker_shop/home_page.dart';
-import 'package:test_sneaker_shop/product_details_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,9 +41,7 @@ class MyApp extends StatelessWidget {
           prefixIconColor: Colors.grey,
         ),
       ),
-      home: ProductDetailsPage(
-        product: products[0],
-      ),
+      home: const HomePage(),
     );
   }
 }
